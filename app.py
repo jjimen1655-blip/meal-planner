@@ -12,7 +12,11 @@ from reportlab.pdfgen import canvas
 MODEL_NAME = "gpt-4.1-mini"
 
 # Load .env for local usage
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except:
+    pass
 
 # Prefer Streamlit secrets in the cloud, fall back to local env
 api_key = None
